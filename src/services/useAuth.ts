@@ -55,7 +55,7 @@ export const useAuth = () => {
         const result = await send(() =>
             axios.post(ApiEndpoints.ForgotPassword, {
                 email,
-                redirect_url: `${window.location.origin}/reset-password`,
+                redirect_url: `${window.location.origin}/#/reset-password`,
             })
         );
 
