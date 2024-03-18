@@ -1,0 +1,116 @@
+:root {
+    --base-color: #316fea;
+    --base-color-hover: #1550c6;
+    --title-color: #1a1919;
+    --dark-text-color: #060e1e;
+    --project-font: Basis Grotesque Pro;
+    --border-style: 1.2px solid #d3d8dc;
+    --radius: 6px;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    * {
+        box-sizing: border-box;
+        font-family: var(--project-font);
+    }
+
+    .btn {
+        width: 100%;
+        position: relative;
+        background-color: white;
+        border-radius: var(--radius);
+        font-weight: 500;
+        padding: 14px 0 14px 0;
+        border: var(--border-style);
+        color: var(--dark-text-color);
+        font-size: 16px;
+        transition: all ease-out 0.2s;
+
+        &:hover {
+            box-shadow: 0 0 7px 0px #d3d8dce3;
+            cursor: pointer;
+        }
+
+        &.submit-btn {
+            background-color: var(--base-color);
+            color: white;
+            border: none;
+
+            &:hover {
+                background-color: var(--base-color-hover);
+            }
+        }
+
+        &.btn-loading {
+            color: transparent;
+            cursor: default;
+
+            &:after {
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                border: 3px solid transparent;
+                border-top-color: var(--base-color);
+                border-right-color: var(--base-color);
+                border-radius: 50%;
+                animation: btn-loading-spinner 1s ease infinite;
+            }
+
+            &.submit-btn:after {
+                border-top-color: #ffffff;
+                border-right-color: #ffffff;
+            }
+        }
+
+        @keyframes btn-loading-spinner {
+            from {
+                transform: rotate(0turn);
+            }
+
+            to {
+                transform: rotate(1turn);
+            }
+        }
+    }
+
+    .skeleton {
+        background: #eee;
+        background: linear-gradient(
+            110deg,
+            #f1f1f1 8%,
+            #ffffff 18%,
+            #f1f1f1 33%
+        );
+        border-radius: 5px;
+        background-size: 200% 100%;
+        animation: 1s shine linear infinite;
+
+        &.btn {
+            color: transparent;
+            cursor: default;
+        }
+    }
+
+    @keyframes shine {
+        to {
+            background-position-x: -200%;
+        }
+    }
+
+    .input-error {
+        color: #b91313;
+        font-weight: bold;
+        margin-top: 5px;
+        display: inline-block;
+    }
+}
