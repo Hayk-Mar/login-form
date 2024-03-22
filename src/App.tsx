@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 import { openRoutes, privateRoutes } from "routes";
 import PrivateRoute from "routes/PrivateRoute";
@@ -7,7 +7,7 @@ import { Toaster } from "react-hot-toast";
 const App = () => {
     return (
         <RecoilRoot>
-            <HashRouter>
+            <BrowserRouter>
                 <Routes>
                     {openRoutes.map((route) => (
                         <Route {...route} key={route.path} />
@@ -19,7 +19,7 @@ const App = () => {
                         ))}
                     </Route>
                 </Routes>
-            </HashRouter>
+            </BrowserRouter>
             <Toaster />
         </RecoilRoot>
     );
