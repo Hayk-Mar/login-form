@@ -8,19 +8,9 @@ import { useAuth } from "services/useAuth";
 import { useState } from "react";
 import classNames from "classnames";
 import { errorMessage } from "utils/helpers/toast";
+import { loginValidation } from "utils/validations/formValidations";
 
 const LoginPage = () => {
-    const loginValidation = {
-        email: {
-            required: true,
-            email: true,
-        },
-        password: {
-            required: true,
-            min: 8,
-        },
-    }
-
     const { register, handleSubmit, errors } = useForm<LoginTypes>(loginValidation);
     const [loading, setLoading] = useState<boolean>(false);
     const navigate = useNavigate();

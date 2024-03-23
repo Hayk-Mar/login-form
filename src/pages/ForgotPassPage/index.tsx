@@ -8,14 +8,9 @@ import { useState } from "react";
 import { useAuth } from "services/useAuth";
 import classNames from "classnames";
 import { errorMessage, successMessage } from "utils/helpers/toast";
+import { forgotPassValidation } from "utils/validations/formValidations";
 
 const ForgotPass = () => {
-    const forgotPassValidation = {
-        email: {
-            required: true,
-            email: true,
-        },
-    }
     const { register, handleSubmit, errors } = useForm<ForgotPassTypes>(forgotPassValidation);
     const navigate = useNavigate();
     const [loading, setLoading] = useState<boolean>(false);

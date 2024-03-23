@@ -9,19 +9,9 @@ import classNames from "classnames";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { errorMessage, successMessage } from "utils/helpers/toast";
 import { Messages } from "utils/enums/messages";
+import { resetPassValidation } from "utils/validations/formValidations";
 
 const ResetPass = () => {
-    const resetPassValidation = {
-        password: {
-            required: true,
-            min: 8,
-        },
-        confirmPassword: {
-            required: true,
-            min: 8,
-        },
-    }
-
     const { register, handleSubmit, errors, handleError } = useForm<ResetPassTypes>(resetPassValidation);
     const navigate = useNavigate();
     let [searchParams] = useSearchParams();
